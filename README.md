@@ -1,5 +1,5 @@
 
-This repository holds the Code for EACL 2021 paper "Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal Arabic Sequence Labeling"
+### Code for EACL 2021 paper "Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal Arabic Sequence Labeling"
 
 
 
@@ -75,4 +75,14 @@ To finetune XLM-RoBERTa without self-training use the following command:
 
 ```
 
+## Citation 
+If you use this code or our create zero-shot data, please cite this paper
+```
+@inproceedings{khalifa2021self,
+  title={Self-Training Pre-Trained Language Models for Zero-and Few-Shot Multi-Dialectal Arabic Sequence Labeling},
+  author={Khalifa, Muhammad and Abdul-Mageed, Muhammad and Shaalan, Khaled},
+  journal={arXiv preprint arXiv:2101.04758},
+  year={2021}
+}
+```
 
