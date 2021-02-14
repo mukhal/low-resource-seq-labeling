@@ -76,7 +76,7 @@ To finetune XLM-RoBERTa without self-training use the following command:
 ```
 
 ## Citation 
-If you use this code or our create zero-shot data, please cite this paper
+If you use this code, please cite this paper
 ```
 @inproceedings{khalifa2021self,
   title={Self-Training Pre-Trained Language Models for Zero-and Few-Shot Multi-Dialectal Arabic Sequence Labeling},
