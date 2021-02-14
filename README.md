@@ -30,19 +30,11 @@ Format your data using IOB format with a token per line and an empty line separa
 Similar to NER: 
 ```
 و       CONJ
-WB      WB
 هو      PRON
-WB      WB
 في      PREP
-WB      WB
 محام    NOUN
 TB      TB
 ين      NSUFF
-WB      WB
-ه       FUT_PART
-TB      TB
-يعبر    V
-TB      TB
 ```
 Typically each data folder has 3 files: `train.txt`, `valid.txt`, and `test.txt`
 
