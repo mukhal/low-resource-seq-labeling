@@ -57,7 +57,7 @@ To finetune XLM-RoBERTa without self-training use the following command:
 
 ```
  python main.py --data_dir=data_path --task_name=ner \
-        --output_dir="/tmp/msa_tau=$i" \
+        --output_dir=output_dir \
         --max_seq_length=320 --num_train_epochs 5 \
         --do_eval --warmup_proportion=0.1 \
         --pretrained_path pretrained_models/xlmr.base/ \
@@ -65,6 +65,32 @@ To finetune XLM-RoBERTa without self-training use the following command:
         --gradient_accumulation_steps 1 --eval_on test --dropout 0.1\
         --train_batch_size 16 --eval_batch_size 128 --do_train
 
+```
+
+## Self-training
+To fine-tune your model with self-training, you need to add the flag `--self_training`. Also, you need to specify your selection mechanism:  
+* Use integer values > 1 for fixed size selection. For example, 
+```
+python main.py --data_dir=data_path --task_name=ner \
+        --output_dir=output_dir \
+        --max_seq_length=320 --num_train_epochs 5 \
+        --do_eval --warmup_proportion=0.1 \
+        --pretrained_path pretrained_models/xlmr.base/ \
+        --learning_rate 0.00001\
+        --gradient_accumulation_steps 1 --eval_on test --dropout 0.1\
+        --train_batch_size 16 --eval_batch_size 128 --do_train --self_training --K=100
+```
+
+* Use float values <=1.0 for probability threshold. For example, `--K=0.2`
+```
+python main.py --data_dir=data_path --task_name=ner \
+        --output_dir=output_dir \
+        --max_seq_length=320 --num_train_epochs 5 \
+        --do_eval --warmup_proportion=0.1 \
+        --pretrained_path pretrained_models/xlmr.base/ \
+        --learning_rate 0.00001\
+        --gradient_accumulation_steps 1 --eval_on test --dropout 0.1\
+        --train_batch_size 16 --eval_batch_size 128 --do_train --self_training --K=0.90
 ```
 
 ## Citation 
