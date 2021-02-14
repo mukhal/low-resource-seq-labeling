@@ -1,2 +1,0 @@
-/var/spool/slurmd/job48750154/slurm_script: line 9: act: command not found
-python: can't open file 'run_clf.py': [Errno 2] No such file or directory
