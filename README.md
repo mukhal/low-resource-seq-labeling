@@ -6,6 +6,13 @@ This repository holds the Code for EACL 2021 paper "Self-Training Pre-Trained La
 ## Requirements
 Please make sure you have pytorch >=1.4 and fairseq >= 0.9 installed.
 
+## Datasets
+The `data/` folder includes some of the datasets used in the paper (Some of the datasets can only be accessed through the LDC). 
+* `NER/twitter`: social media NER dataset from [(Darwish, 2013)](https://www.aclweb.org/anthology/P13-1153.pdf)
+* `NER/twitter.norm`: same dataset but normalized.
+* `NER/ANERCorp`: MSA dataset obtained from [(Benajiba et al., 2007)](https://link.springer.com/chapter/10.1007/978-3-540-70939-8_13)
+* `NER/zero-shot-dialect`: this is the zero-shot dialectal setting. training data is from ANERCorp (Benajiba et al., 2007) while validation and test sets come from the dialectal portion of the Twitter data (Darwish, 2013).
+* `NER/zero-shot-msa`:  same as above but validation and test sets come from the MSA portion of the Twitter data 
 ## Setting Up the Data
 ### NER
 Format your data using IOB format with a token per line and an empty line separating sentences. For example: 
