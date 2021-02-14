@@ -113,10 +113,6 @@ class SequenceLabelingProcessor:
             self.labels = ['TB', 'WB', 'PART', 'V', 'ADJ', 'DET', 'HASH', 'NOUN', 'PUNC',
                            'CONJ', 'PREP', 'PRON', 'EOS', 'CASE', 'EMOT', 'NSUFF', 'NUM',
                                   'URL', 'ADV', 'MENTION', 'FUT_PART', 'ABBREV', 'FOREIGN', 'PROG_PART', 'NEG_PART','U']
-            #self.labels = ['P', 'N', 'PN', 'DET', 'ADJ', 'PRON', 'V', 'CONJ', 'REL', 'NEG', 'INL', 'DEM', 'REM', 
-            #        'ACC', 'EQ', 'CIRC', 'RES', 'T', 'PRO', 'PREV', 'INC', 'SUP', 'AMD', 'SUB', 'INTG', 
-            #        'LOC', 'COND', 'EMPH', 'VOC', 'RSLT', 'EXL', 'EXP', 'CAUS', 'FUT', 'CERT', 
-            #        'PRP', 'ANS', 'RET', 'EXH', 'INT', 'IMPV', 'COM', 'SUR', 'AVR', 'IMPN']
             
     def get_train_examples(self, data_dir):
         """See base class."""
