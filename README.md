@@ -81,7 +81,7 @@ python main.py --data_dir=data_path --task_name=ner \
         --train_batch_size 16 --eval_batch_size 128 --do_train --self_training --K=100
 ```
 
-* Use float values <=1.0 for probability threshold. For example, `--K=0.2`
+* Use float values <=1.0 for probability threshold. For example:
 ```
 python main.py --data_dir=data_path --task_name=ner \
         --output_dir=output_dir \
@@ -96,7 +96,7 @@ python main.py --data_dir=data_path --task_name=ner \
 ## Citation 
 If you use this code, please cite this paper
 ```
-@inproceedings{khalifa2021self,
+@article{khalifa2021self,
   title={Self-Training Pre-Trained Language Models for Zero-and Few-Shot Multi-Dialectal Arabic Sequence Labeling},
   author={Khalifa, Muhammad and Abdul-Mageed, Muhammad and Shaalan, Khaled},
   journal={arXiv preprint arXiv:2101.04758},
