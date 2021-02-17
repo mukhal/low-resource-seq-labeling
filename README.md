@@ -1,9 +1,7 @@
 ## Zero-shot Multidialectal Arabic Sequence Labeling (NER and POS tagging)
 
 
-#### Code for EACL 2021 paper "Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal Arabic Sequence Labeling"
-
-
+#### Code for EACL 2021 paper [Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal Arabic Sequence Labeling](https://arxiv.org/abs/2101.04758)
 
 ## Requirements
 Please make sure you have pytorch >=1.4 and fairseq >= 0.9 installed.
