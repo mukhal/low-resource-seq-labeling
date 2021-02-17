@@ -1,12 +1,10 @@
-## Zero-shot Multidialectal Arabic Sequence Labeling (NER and POS tagging)
+## Zero-shot Multi-dialectal Arabic Sequence Labeling (NER and POS tagging)
 
 
-#### Code for EACL 2021 paper "Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal Arabic Sequence Labeling"
-
-
+#### Code for EACL 2021 paper [Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal Arabic Sequence Labeling](https://arxiv.org/abs/2101.04758)
 
 ## Requirements
-Please make sure you have pytorch >=1.4 and fairseq >= 0.9 installed.
+Please make sure you have `pytorch >=1.4` and `fairseq >= 0.9` installed.
 
 ## Datasets
 The `data/` folder includes some of the datasets used in the paper (Some of the datasets can only be accessed through the LDC). 
@@ -85,25 +83,36 @@ To fine-tune your model with self-training, you need to add the flag `--self_tra
 ```
 python main.py --data_dir=data_path --task_name=ner \
         --output_dir=output_dir \
-        --max_seq_length=320 --num_train_epochs 5 \
+        --max_seq_length=320 --num_train_epochs=5 \
         --do_eval --warmup_proportion=0.1 \
-        --pretrained_path pretrained_models/xlmr.base/ \
-        --learning_rate 0.00001\
-        --gradient_accumulation_steps 1 --eval_on test --dropout 0.1\
-        --train_batch_size 16 --eval_batch_size 128 --do_train --self_training --K=100
+        --pretrained_path=pretrained_models/xlmr.base/ \
+        --learning_rate=0.00001\
+        --gradient_accumulation_steps=1 --eval_on test --dropout=0.1\
+        --train_batch_size=16 --eval_batch_size=128 --do_train --self_training --K=100
 ```
 
 * Use float values <=1.0 for probability threshold. For example:
 ```
 python main.py --data_dir=data_path --task_name=ner \
         --output_dir=output_dir \
-        --max_seq_length=320 --num_train_epochs 5 \
+        --max_seq_length=320 --num_train_epochs=5 \
         --do_eval --warmup_proportion=0.1 \
-        --pretrained_path pretrained_models/xlmr.base/ \
+        --pretrained_path=pretrained_models/xlmr.base/ \
         --learning_rate 0.00001\
-        --gradient_accumulation_steps 1 --eval_on test --dropout 0.1\
-        --train_batch_size 16 --eval_batch_size 128 --do_train --self_training --K=0.90
+        --gradient_accumulation_steps=1 --eval_on test --dropout=0.1\
+        --train_batch_size=16 --eval_batch_size=128 --do_train --self_training --K=0.90
 ```
+To train for POS tagging, run with `--task_name=pos`. 
+
+## Evaluation
+To evaluate or predict labels using a finetuned model: 
+```
+python predict.py  --task_name=ner \
+        --load_model=path/to/finetuned/model.pt \
+        --pretrained_path pretrained_models/xlmr.base/ \
+        --predict_file=path/to/IOB/file
+```
+
 
 ## Citation 
 If you use this code, please cite this paper
