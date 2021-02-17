@@ -4,7 +4,7 @@
 #### Code for EACL 2021 paper [Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal Arabic Sequence Labeling](https://arxiv.org/abs/2101.04758)
 
 ## Requirements
-Please make sure you have pytorch >=1.4 and fairseq >= 0.9 installed.
+Please make sure you have `pytorch >=1.4` and `fairseq >= 0.9` installed.
 
 ## Datasets
 The `data/` folder includes some of the datasets used in the paper (Some of the datasets can only be accessed through the LDC). 
