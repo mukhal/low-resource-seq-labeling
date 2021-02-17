@@ -1,5 +1,7 @@
+## Zero-shot Multidialectal Arabic Sequence Labeling (NER and POS tagging)
 
-### Code for EACL 2021 paper "Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal Arabic Sequence Labeling"
+
+#### Code for EACL 2021 paper "Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal Arabic Sequence Labeling"
 
 
 
@@ -8,11 +10,21 @@ Please make sure you have pytorch >=1.4 and fairseq >= 0.9 installed.
 
 ## Datasets
 The `data/` folder includes some of the datasets used in the paper (Some of the datasets can only be accessed through the LDC). 
+
+### NER
 * `NER/twitter`: social media NER dataset from [(Darwish, 2013)](https://www.aclweb.org/anthology/P13-1153.pdf)
 * `NER/twitter.norm`: same dataset but normalized.
 * `NER/ANERCorp`: MSA dataset obtained from [(Benajiba et al., 2007)](https://link.springer.com/chapter/10.1007/978-3-540-70939-8_13)
 * `NER/zero-shot-dialect`: this is the zero-shot dialectal setting. training data is from ANERCorp (Benajiba et al., 2007) while validation and test sets come from the dialectal portion of the Twitter data (Darwish, 2013).
-* `NER/zero-shot-msa`:  same as above but validation and test sets come from the MSA portion of the Twitter data 
+* `NER/zero-shot-msa`:  same as above but validation and test sets come from the MSA portion of the Twitter data.
+### POS tagging 
+* `POS-tagging/egy`, `POS-tagging/glf`, `POS-tagging/lev`, and `POS-tagging/msa` dialectal POS tagging datasets obtained from [(Darwish et al., 2018)](https://www.aclweb.org/anthology/L18-1015.pdf)
+* `POS-tagging/zero-shot-*`: training data is MSA, development, and test data from dialects.
+
+### Unalebeled data
+These are unlabeled examples used for self-training.
+* `unlabeled_aoc`: Unlabeled AOC tweets taken from [(El Araby and Mageed, 2018)](https://www.aclweb.org/anthology/W18-3930.pdf).
+
 ## Setting Up the Data
 ### NER
 Format your data using IOB format with a token per line and an empty line separating sentences. For example: 
