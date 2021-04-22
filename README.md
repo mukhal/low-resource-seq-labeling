@@ -117,11 +117,15 @@ python predict.py  --task_name=ner \
 ## Citation 
 If you use this code, please cite this paper
 ```
-@article{khalifa2021self,
-  title={Self-Training Pre-Trained Language Models for Zero-and Few-Shot Multi-Dialectal Arabic Sequence Labeling},
-  author={Khalifa, Muhammad and Abdul-Mageed, Muhammad and Shaalan, Khaled},
-  journal={arXiv preprint arXiv:2101.04758},
-  year={2021}
+@inproceedings{khalifa-etal-2021-self,
+    title = "Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal {A}rabic Sequence Labeling",
+    author = "Khalifa, Muhammad  and
+      Abdul-Mageed, Muhammad  and
+      Shaalan, Khaled",
+    booktitle = "Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume",
+    month = apr,
+    year = "2021",
+    publisher = "Association for Computational Linguistics",
 }
 ```
 
