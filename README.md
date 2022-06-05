@@ -1,4 +1,4 @@
-## Zero-shot Multi-dialectal Arabic Sequence Labeling (NER and POS tagging)
+## Low-resource Multi-dialectal Arabic Sequence Labeling (NER and POS tagging)
 
 
 #### Code for EACL 2021 paper [Self-Training Pre-Trained Language Models for Zero- and Few-Shot Multi-Dialectal Arabic Sequence Labeling](https://arxiv.org/abs/2101.04758)
