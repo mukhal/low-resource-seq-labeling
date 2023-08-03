@@ -15,7 +15,7 @@ def add_xlmr_args(parser):
      parser.add_argument("--data_dir",
                          default=None,
                          type=str,
-                         required=True,
+                         required=False,
                          help="The input data dir. Should contain the .tsv files (or other data files) for the task.")
      parser.add_argument("--pretrained_path", default=None, type=str, required=True,
                          help="pretrained XLM-Roberta model path")
@@ -27,7 +27,7 @@ def add_xlmr_args(parser):
      parser.add_argument("--output_dir",
                          default=None,
                          type=str,
-                         required=True,
+                         required=False,
                          help="The output directory where the model predictions and checkpoints will be written.")
      # Other parameters
      parser.add_argument("--cache_dir",
