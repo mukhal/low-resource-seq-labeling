@@ -392,7 +392,7 @@ def evaluate_model_seq_labeling(model, eval_dataset, label_list, batch_size, use
                y_pred.append(temp_2)
 
      report = classification_report(y_true, y_pred, digits=4)
-     f1 = f1_score(y_true, y_pred, average='Macro')
+     f1 = f1_score(y_true, y_pred, average='macro')
      acc = accuracy_score(y_true, y_pred)
 
      s = "Accuracy = {}".format(acc)
