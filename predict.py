@@ -19,8 +19,8 @@ from torch.utils.data import (DataLoader, RandomSampler, SequentialSampler,
 from seqeval.metrics import classification_report
 from model.xlmr_for_token_classification import (XLMRForTokenClassification, 
                                                 XLMRForTokenClassificationWithCRF, Discriminator)
-from utils.train_utils import add_xlmr_args, evaluate_model, get_top_confidence_samples
-from utils.data_utils import DataProcessor, create_ner_dataset, SentClfProcessor, create_clf_dataset
+from utils.train_utils import add_xlmr_args, evaluate_model_seq_labeling, get_top_confidence_samples_seq_labeling
+from utils.data_utils import SequenceLabelingProcessor, create_ner_dataset, create_clf_dataset
 
 from tqdm import tqdm as tqdm
 from tqdm import trange
@@ -41,7 +41,7 @@ def main():
 
     args = parser.parse_args()
 
-    data_processor = DataProcessor(task=args.task_name)
+    data_processor = SequenceLabelingProcessor(task=args.task_name)
     label_list = data_processor.get_labels()
     num_labels = len(label_list) + 1  # add one for IGNORE label
 
@@ -70,7 +70,7 @@ def main():
         pred_examples, label_list, 320, model.encode_word)
     
     pred_data = create_ner_dataset(pred_features)
-    f1_score, report, y_true, y_pred = evaluate_model(model, pred_data, label_list, args.eval_batch_size, args.use_crf, device, pred=True)
+    f1_score, report, y_true, y_pred = evaluate_model_seq_labeling(model, pred_data, label_list, args.eval_batch_size, args.use_crf, device, pred=True)
 
    
     logger.info("\n%s", report)
