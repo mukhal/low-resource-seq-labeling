@@ -216,7 +216,7 @@ def get_top_confidence_samples_seq_labeling(model, features, batch_size=16,  K=4
          confident_features.append(InputFeatures(input_ids=ids, label_id=lbls, label_mask=msks, valid_ids=valids))
  
      # select those that don't satisfy the confidence
-     non_selected_ids = all_input_ids[rest_idx].cpu().numpy().tolist()
+     non_selected_ids = all_input_ids[rest_idx.cpu()].cpu().numpy().tolist()
      non_selected_lbls = all_label_ids[rest_idx].cpu().numpy().tolist()
      non_selected_masks = all_lmask_ids[rest_idx].cpu().numpy().tolist()
      non_selected_valid = all_valid_ids[rest_idx].cpu().numpy().tolist()
