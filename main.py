@@ -36,7 +36,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser = add_xlmr_args(parser)
     parser.add_argument('--self_training', action='store_true', default=False)
-    parser.add_argument('--unlabeled_data_dir', type=str, default='data/unlabeled_data')
+    parser.add_argument('--unlabeled_data_dir', type=str, default='data/UNLABELED/unlabeled_aoc')
     parser.add_argument('--self_training_confidence', type=float, default=0.9)
     parser.add_argument('--K', type=float, default=50)
     parser.add_argument('--patience', type=float, default=10)
