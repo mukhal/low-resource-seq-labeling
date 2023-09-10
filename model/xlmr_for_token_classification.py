@@ -2,8 +2,7 @@ from fairseq.models.roberta import XLMRModel
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torchcrf import CRF
-#from TorchCRF import CRF
+from TorchCRF import CRF
 
 class Discriminator(nn.Module):
     def __init__(self, hidden_size):

@@ -15,7 +15,7 @@ def add_xlmr_args(parser):
      parser.add_argument("--data_dir",
                          default=None,
                          type=str,
-                         required=True,
+                         required=False,
                          help="The input data dir. Should contain the .tsv files (or other data files) for the task.")
      parser.add_argument("--pretrained_path", default=None, type=str, required=True,
                          help="pretrained XLM-Roberta model path")
@@ -27,7 +27,7 @@ def add_xlmr_args(parser):
      parser.add_argument("--output_dir",
                          default=None,
                          type=str,
-                         required=True,
+                         required=False,
                          help="The output directory where the model predictions and checkpoints will be written.")
      # Other parameters
      parser.add_argument("--cache_dir",
@@ -205,10 +205,10 @@ def get_top_confidence_samples_seq_labeling(model, features, batch_size=16,  K=4
      
      rest_idx = torch.tensor([i for i in range(len(confidences)) if i not in top_k_idx]).long()
         
-     selected_ids = all_input_ids[top_k_idx].cpu().numpy().tolist()
-     selected_lbls = predictions[top_k_idx].cpu().numpy().tolist()
-     selected_masks = all_lmask_ids[top_k_idx].cpu().numpy().tolist()
-     selected_valid = all_valid_ids[top_k_idx].cpu().numpy().tolist()
+     selected_ids = all_input_ids[top_k_idx.cpu()].cpu().numpy().tolist()
+     selected_lbls = predictions[top_k_idx.cpu()].cpu().numpy().tolist()
+     selected_masks = all_lmask_ids[top_k_idx.cpu()].cpu().numpy().tolist()
+     selected_valid = all_valid_ids[top_k_idx.cpu()].cpu().numpy().tolist()
 
      # add them to examples
      for ids, lbls, msks, valids in zip(selected_ids, selected_lbls, selected_masks, selected_valid):
@@ -216,10 +216,10 @@ def get_top_confidence_samples_seq_labeling(model, features, batch_size=16,  K=4
          confident_features.append(InputFeatures(input_ids=ids, label_id=lbls, label_mask=msks, valid_ids=valids))
  
      # select those that don't satisfy the confidence
-     non_selected_ids = all_input_ids[rest_idx].cpu().numpy().tolist()
-     non_selected_lbls = all_label_ids[rest_idx].cpu().numpy().tolist()
-     non_selected_masks = all_lmask_ids[rest_idx].cpu().numpy().tolist()
-     non_selected_valid = all_valid_ids[rest_idx].cpu().numpy().tolist()
+     non_selected_ids = all_input_ids[rest_idx.cpu()].cpu().numpy().tolist()
+     non_selected_lbls = all_label_ids[rest_idx.cpu()].cpu().numpy().tolist()
+     non_selected_masks = all_lmask_ids[rest_idx.cpu()].cpu().numpy().tolist()
+     non_selected_valid = all_valid_ids[rest_idx.cpu()].cpu().numpy().tolist()
      
      for ids, lbls, msks, valids in zip(non_selected_ids, non_selected_lbls, non_selected_masks, non_selected_valid):
          #print(lbls)
@@ -392,7 +392,7 @@ def evaluate_model_seq_labeling(model, eval_dataset, label_list, batch_size, use
                y_pred.append(temp_2)
 
      report = classification_report(y_true, y_pred, digits=4)
-     f1 = f1_score(y_true, y_pred, average='Macro')
+     f1 = f1_score(y_true, y_pred, average='macro')
      acc = accuracy_score(y_true, y_pred)
 
      s = "Accuracy = {}".format(acc)
